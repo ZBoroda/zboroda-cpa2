@@ -36,7 +36,8 @@ const courses = courses2122
 // *********************************************************** //
 
 const mongoose = require( 'mongoose' );
-const mongodb_URI = 'mongodb+srv://zach:zach@cluster0.eatvm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongodb_URI = process.env.mongodb_URI
+//const mongodb_URI = 'mongodb+srv://zach:<password>@cluster0.eatvm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 //const mongodb_URI = process.env.mongodb_URI
 //const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
 //const mongodb_URI = 'mongodb+srv://cs_sj:BrandeisSpr22@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
