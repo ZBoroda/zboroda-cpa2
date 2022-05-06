@@ -19,6 +19,11 @@
         <% }%>
     </ol>
     <hr>
+
+    <p class="p-3 m-3 border border-primary bg-light">
+        Must be <a href="/login">logged in</a> to create an event. 
+    </p>
+
     <form method="post" action="/events/add">
         Event title: <input type="text" name="title" placeholder="e.g. Movie Night"><br><br>
         Event description: <input type="text" name="description"><br><br>
