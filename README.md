@@ -26,3 +26,8 @@ and start the project with
 nodemon
 ```
 
+## Screenshots of the project working
+
+![From the home screen](screenshots/Screen Shot 2022-05-06 at 1.36.42 PM.png)
+
+
