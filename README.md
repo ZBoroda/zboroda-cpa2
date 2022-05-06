@@ -28,6 +28,10 @@ nodemon
 
 ## Screenshots of the project working
 
-![From the home screen](screenshots/Screen Shot 2022-05-06 at 1.36.42 PM.png)
+![From the home screen](https://github.com/ZBoroda/zboroda-cpa2/blob/4e14e1b2969d2cae6733ffc2765fa3411083d364/screenshots/Screen%20Shot%202022-05-06%20at%201.36.42%20PM.png)
+
+![Adding an event](https://github.com/ZBoroda/zboroda-cpa2/blob/c5599c611294538f081208797836ce5a9049c008/screenshots/Screen%20Shot%202022-05-06%20at%201.37.20%20PM.png)
+
+![Displaying a new event](https://github.com/ZBoroda/zboroda-cpa2/blob/main/screenshots/Screen%20Shot%202022-05-06%20at%201.37.36%20PM.png)
 
 
