@@ -1,9 +1,11 @@
-# CS103a Express App Demo
+# CS103a Express App
 
-This is a starter project which has a simple authentication module 
+This is the beginings of a project which has a simple authentication module 
 and provides access to a mongoose database in the cloud.
 
-## Installation
+## Run this project in the cloud: https://zboroda-cpa2.herokuapp.com
+
+## Installation to run this project locally
 Download the project from github and download nodejs and npm from https://nodejs.org
 and cd into the folder
 
