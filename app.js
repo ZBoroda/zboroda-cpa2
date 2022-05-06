@@ -20,7 +20,7 @@ var MongoDBStore = require('connect-mongodb-session')(session);
 // *********************************************************** //
 //  Loading models
 // *********************************************************** //
-const ToDoItem = require("./models/ToDoItem")
+const Event = require("./models/Event")
 const Course = require('./models/Course')
 const Schedule = require('./models/Schedule')
 
@@ -38,7 +38,6 @@ const courses = courses2122
 const mongoose = require( 'mongoose' );
 const mongodb_URI = process.env.mongodb_URI
 //const mongodb_URI = 'mongodb+srv://:@cluster0.eatvm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-//const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
 //const mongodb_URI = 'mongodb+srv://cs_sj:BrandeisSpr22@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 mongoose.connect( mongodb_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
@@ -168,23 +167,21 @@ app.get("/demo",
 
 
 /*
-    ToDoList routes
+    Event routes
 */
-app.get('/todo',
-  isLoggedIn,   // redirect to /login if user is not logged in
+app.get('/events',
   async (req,res,next) => {
     try{
-      let userId = res.locals.user._id;  // get the user's id
-      let items = await ToDoItem.find({userId:userId}); // lookup the user's todo items
-      res.locals.items = items;  //make the items available in the view
-      res.render("toDo");  // render to the toDo page
+      let events = await Event.find({}); // lookup the user's event items
+      res.locals.events = events;  //make the items available in the view
+      res.render("events");  // render to the event page
     } catch (e){
       next(e);
     }
   }
   )
 
-  app.post('/todo/add',
+  app.post('/events/add',
   isLoggedIn,
   async (req,res,next) => {
     try{
@@ -192,41 +189,27 @@ app.get('/todo',
       const userId = res.locals.user._id; // get the user's id
       const createdAt = new Date(); // get the current date/time
       let data = {title, description, userId, createdAt, eventDate, eventLocation,} // create the data object
-      let item = new ToDoItem(data) // create the database object (and test the types are correct)
-      await item.save() // save the todo item in the database
-      res.redirect('/todo')  // go back to the todo page
+      let event = new Event(data) // create the database object (and test the types are correct)
+      await event.save() // save the todo item in the database
+      res.redirect('/events')  // go back to the event page
     } catch (e){
       next(e);
     }
   }
   )
 
-  app.get("/todo/delete/:itemId",
+  app.get("/events/delete/:itemId",
     isLoggedIn,
     async (req,res,next) => {
       try{
         const itemId=req.params.itemId; // get the id of the item to delete
-        await ToDoItem.deleteOne({_id:itemId}) // remove that item from the database
-        res.redirect('/todo') // go back to the todo page
+        await Event.deleteOne({_id:itemId}) // remove that item from the database
+        res.redirect('/events') // go back to the event page
       } catch (e){
         next(e);
       }
     }
   )
-
-  app.get("/todo/completed/:value/:itemId",
-  isLoggedIn,
-  async (req,res,next) => {
-    try{
-      const itemId=req.params.itemId; // get the id of the item to delete
-      const completed = req.params.value=='true';
-      await ToDoItem.findByIdAndUpdate(itemId,{completed}) // remove that item from the database
-      res.redirect('/todo') // go back to the todo page
-    } catch (e){
-      next(e);
-    }
-  }
-)
 
 /* ************************
   Functions needed for the course finder routes

@@ -1,24 +1,24 @@
     <div class="bg-light border border-primary p-3 rounded m-3">
         <h1 class="display-4 text-center">Upcoming Club Events List</h1>
-        <% if (items.length == 1) {%>
-            <p class="lead text-center"><%= items.length %>  Upcoming event for <%= user['username'] %></p>
+        <% if (events.length == 1) {%>
+            <p class="lead text-center"><%= events.length %>  upcoming event</p>
         <% } else {%>
-            <p class="lead text-center"><%= items.length %>  Upcoming events for <%= user['username'] %></p>
+            <p class="lead text-center"><%= events.length %>  upcoming events </p>
         <% } %>     
     </div>
     <hr>
     <ol>
-        <% for (item of items){%>
+        <% for (event of events){%>
             <li class="mb-2">          
-                <b><%= item.title%>:</b><i><%= item.description %></i>
+                <b><%= event.title%>:</b><i><%= event.description %></i>
                 <br>
-                <%= item.createdAt %> 
-                <a href="/todo/delete/<%= item._id%>">(delete)</a>
+                Location: <%= event.eventLocation%> <br>
+                Date: <%= event.eventDate%>
             </li>
         <% }%>
     </ol>
     <hr>
-    <form method="post" action="/todo/add">
+    <form method="post" action="/events/add">
         Event title: <input type="text" name="title" placeholder="e.g. Movie Night"><br><br>
         Event description: <input type="text" name="description"><br><br>
         Event date and time: <input type="text" name="eventDate" placeholder="e.g October 1st, 5pm"><br><br>
