@@ -26,6 +26,8 @@ and start the project with
 nodemon
 ```
 
+## [Video of the proof of concept working](https://brandeis.zoom.us/rec/share/JsKEVMjQQ7LfcXClEuhVb-58unfsZJ7wk2bLWQ1m8FcdBdl4vnvvq46cwtVPaHP5.AxOFjSz99XIzxKg8)
+
 ## Screenshots of the project working
 
 ![From the home screen](https://github.com/ZBoroda/zboroda-cpa2/blob/4e14e1b2969d2cae6733ffc2765fa3411083d364/screenshots/Screen%20Shot%202022-05-06%20at%201.36.42%20PM.png)
