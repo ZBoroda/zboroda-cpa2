@@ -7,7 +7,8 @@ var toDoItemSchema = Schema( {
   userId: ObjectId,
   title: String,
   description:String,
-  completed: Boolean,
+  eventDate: String,
+  eventLocation: String,
   createdAt: Date,
 } );
 

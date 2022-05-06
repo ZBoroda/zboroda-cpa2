@@ -1,17 +1,16 @@
     <div class="bg-light border border-primary p-3 rounded m-3">
-        <h1 class="display-4 text-center">To Do List</h1>
-        <p class="lead text-center"><%= items.length %>  items for <%= user['username'] %> to do</p>
+        <h1 class="display-4 text-center">Upcoming Club Events List</h1>
+        <% if (items.length == 1) {%>
+            <p class="lead text-center"><%= items.length %>  Upcoming event for <%= user['username'] %></p>
+        <% } else {%>
+            <p class="lead text-center"><%= items.length %>  Upcoming events for <%= user['username'] %></p>
+        <% } %>     
     </div>
     <hr>
     <ol>
         <% for (item of items){%>
             <li class="mb-2">          
                 <b><%= item.title%>:</b><i><%= item.description %></i>
-                <% if (item.completed) {%>
-                    <a href="/todo/completed/false/<%= item._id%>">  Done</a>
-                <% } else {%>
-                    <a href="/todo/completed/true/<%= item._id%>"> In Process</a>
-                <% } %>
                 <br>
                 <%= item.createdAt %> 
                 <a href="/todo/delete/<%= item._id%>">(delete)</a>
@@ -20,9 +19,11 @@
     </ol>
     <hr>
     <form method="post" action="/todo/add">
-        title:<input type="text" name="title"><br>
-        description:<input type="text" name="description"><br>
-        <input type="submit" value="Save Item"><br>
+        Event title: <input type="text" name="title" placeholder="e.g. Movie Night"><br><br>
+        Event description: <input type="text" name="description"><br><br>
+        Event date and time: <input type="text" name="eventDate" placeholder="e.g October 1st, 5pm"><br><br>
+        Event Location: <input type="text" name="eventLocation" ><br><br>
+        <input type="submit" value="Save Event"><br>
     </form>
     
 
