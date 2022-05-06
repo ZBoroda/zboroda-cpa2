@@ -37,7 +37,7 @@ const courses = courses2122
 
 const mongoose = require( 'mongoose' );
 const mongodb_URI = process.env.mongodb_URI
-//const mongodb_URI = 'mongodb+srv://<username>:<password>@cluster0.eatvm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+//const mongodb_URI = 'mongodb+srv://:@cluster0.eatvm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 //const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
 //const mongodb_URI = 'mongodb+srv://cs_sj:BrandeisSpr22@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
@@ -632,6 +632,7 @@ app.get('/schedule/show',
   // show the current user's schedule
   async (req,res,next) => {
     try{
+      res.locals.times2str = times2str
       const userId = res.locals.user._id;
       const courseIds = 
          (await Schedule.find({userId}))
