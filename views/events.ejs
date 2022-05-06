@@ -13,7 +13,8 @@
                 <b><%= event.title%>:</b><i><%= event.description %></i>
                 <br>
                 Location: <%= event.eventLocation%> <br>
-                Date: <%= event.eventDate%>
+                Date: <%= event.eventDate%><br>
+                <a href="/events/delete/<%= event._id%>">(delete)</a>
             </li>
         <% }%>
     </ol>

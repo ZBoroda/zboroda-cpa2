@@ -203,7 +203,11 @@ app.get('/events',
     async (req,res,next) => {
       try{
         const itemId=req.params.itemId; // get the id of the item to delete
-        await Event.deleteOne({_id:itemId}) // remove that item from the database
+        let events = await Event.find({_id:itemId});
+        if (events[0].userId == res.locals.user._id.toString()) {
+          console.log('hello')
+          await Event.deleteOne({_id:itemId}) // remove that item from the database
+        }
         res.redirect('/events') // go back to the event page
       } catch (e){
         next(e);
