@@ -5,6 +5,8 @@ and provides access to a mongoose database in the cloud.
 
 ## Run this project in the cloud: https://zboroda-cpa2.herokuapp.com
 
+## [Click to see a video of the proof of concept working](https://brandeis.zoom.us/rec/share/JsKEVMjQQ7LfcXClEuhVb-58unfsZJ7wk2bLWQ1m8FcdBdl4vnvvq46cwtVPaHP5.AxOFjSz99XIzxKg8)
+
 ## Installation to run this project locally
 Download the project from github and download nodejs and npm from https://nodejs.org
 and cd into the folder
@@ -25,8 +27,6 @@ and start the project with
 ``` bash
 nodemon
 ```
-
-## [Video of the proof of concept working](https://brandeis.zoom.us/rec/share/JsKEVMjQQ7LfcXClEuhVb-58unfsZJ7wk2bLWQ1m8FcdBdl4vnvvq46cwtVPaHP5.AxOFjSz99XIzxKg8)
 
 ## Screenshots of the project working
 
